@@ -1,5 +1,10 @@
 <?php
+/**
+ * Copyright (c) 2016
+ */
 namespace Deliv;
+use GuzzleHttp;
+
 /**
  * 
  */
@@ -9,19 +14,21 @@ class APIClient {
     private $lastRequestData;
     private $api_key;
     private static $api_client;
+    private $apiUrl;
     private static $defaults = array(
         'verify_ssl' => true
     );
-    
+
     /**
-     * Singleton method for getting the APIClient
-     * 
-     * @param $opts
-     * @return 
+     * APIClient constructor.
+     *
+     * @param $api_key
+     * @param string $apiUrl
      */
-    public function __construct($api_key, $opts=array()) {
-        $this->api_key = $api_key; 
-        $this->opts = array_merge(self::$defaults, $opts);
+    public function __construct($api_key, $apiUrl='https://sandbox.api.deliv.co/v2/') {
+        $this->api_key = $api_key;
+        $this->apiUrl=$apiUrl;
+        $this->opts = array_merge(self::$defaults);
     }
     
     /**
@@ -36,39 +43,13 @@ class APIClient {
         $this->lastRequest = $url;
         $this->lastRequestData = $parameters;
 
-        $parameters = array_merge($parameters, array('api_key' => $this->api_key)
+        $parameters = array_merge($parameters, array('api_key' => $this->api_key));
 
-        // init curl
-        //
-        $curl = curl_init($url.'?'.http_build_query($parameters));
-        $curlOptions = array(
-            CURLOPT_SSL_VERIFYPEER  => $this->opts['verify_ssl'],
-            CURLOPT_FOLLOWLOCATION  => true,
-            CURLOPT_REFERER         => $url,
-            CURLOPT_RETURNTRANSFER  => true
-        );
-        
-        // set the body of the request, if there is one. 
-        //
-        if ($request != 'GET' && $body) {
-            $curlOptions[CURLOPT_CUSTOMREQUEST, $request];
-            $curlOptions[CURLOPT_POSTFIELDS, $body];
-            $curlOptions[CURLINFO_CONTENT_TYPE, 'application/json'];
-        }
-        
-        curl_setopt_array($curl, $curlOptions);
-        $response = curl_exec($curl);
-        $error = curl_error($curl);
-        $this->lastRequestInfo = curl_getinfo($curl);
-        curl_close($curl);
+        $client = new  GuzzleHttp\Client();
+        $response = $client->request('GET',$this->apiUrl.$url, $parameters);
 
-        if ($response) {
-            return $this->parseResponse( $response );
-        }
-        
-        // TODO: handle error generation
-        //
-        return $error;
+
+        return $response;
     }
     
     /**
@@ -80,8 +61,8 @@ class APIClient {
      * @return function
      */
     public function get($request, $parameters=array()){
-        $requestUrl = $this->parseGet( $this->apiUrl . $request, $parameters );
-        return $this->request($requestUrl);
+
+        return $this->request($request,'', $parameters,'GET');
     }
 
     /**
