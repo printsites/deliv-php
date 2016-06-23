@@ -20,7 +20,6 @@ class Package extends DelivAPI {
   public $depth; //int
   public $weight; //double
 
-
   /**
    * Packages constructor.
    *
@@ -32,7 +31,7 @@ class Package extends DelivAPI {
    * @param $depth
    * @param $weight
    */
-  public function __construct($name='', $price='', $SKU='', $height='', $width='', $depth='', $weight='') {
+  public function __construct($name = '', $price = NULL, $SKU = NULL, $height = NULL, $width = NULL, $depth = NULL, $weight = '') {
     $this->name = $name;
     $this->price = $price;
     $this->SKU = $SKU;

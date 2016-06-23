@@ -9,6 +9,7 @@
  */
 
 namespace Deliv;
+
 use Deliv\Store;
 
 class Stores extends DelivAPI {
@@ -43,9 +44,9 @@ class Stores extends DelivAPI {
    * @param string $id_alias
    * @return $this Store
    */
-  public function getStoreByIDAlias($id_alias='49d09'){
+  public function getStoreByIDAlias($id_alias = '49d09') {
     $client = self::getDelivClient();
-    $response = $client->get('stores/id_alias/'.$id_alias);
+    $response = $client->get('stores/id_alias/' . $id_alias);
     return (new Store())->fill($response);
   }
 

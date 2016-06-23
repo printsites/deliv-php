@@ -10,11 +10,11 @@
 
 namespace Deliv;
 
-class TimeWindows {
-public $id='04eac8c3-05cf-4d5b-80e3-6121b4229a2e';
-  public $starts_at='2014-01-29T05:00:00Z';
-  public $ends_at='2014-01-29T05:00:00Z';
-  public $expires_at='2014-01-29T05:00:00Z';
+class TimeWindows extends DelivAPI {
+  public $id = '04eac8c3-05cf-4d5b-80e3-6121b4229a2e';
+  public $starts_at = '2014-01-29T05:00:00Z';
+  public $ends_at = '2014-01-29T05:00:00Z';
+  public $expires_at = '2014-01-29T05:00:00Z';
 
   /**
    * TimeWindows constructor.
@@ -24,7 +24,7 @@ public $id='04eac8c3-05cf-4d5b-80e3-6121b4229a2e';
    * @param string $ends_at
    * @param string $expires_at
    */
-  public function __construct($id='04eac8c3-05cf-4d5b-80e3-6121b4229a2e', $starts_at=null, $ends_at='2014-01-29T05:00:00Z', $expires_at='2014-01-29T05:00:00Z') {
+  public function __construct($id = '04eac8c3-05cf-4d5b-80e3-6121b4229a2e', $starts_at = NULL, $ends_at = '2014-01-29T05:00:00Z', $expires_at = '2014-01-29T05:00:00Z') {
     $this->id = $id;
     $this->starts_at = $starts_at;
     $this->ends_at = $ends_at;

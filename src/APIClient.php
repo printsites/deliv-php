@@ -48,7 +48,7 @@ class APIClient {
         $client = new  GuzzleHttp\Client();
 
         $response = $client->request($request, $this->apiUrl . $url, $parameters);
-        if ('200' != $response->getStatusCode()) {
+        if ('299' < $response->getStatusCode()) {
             throw new \Exception('Deliv API Request Failed. Status: ' . $response->getStatusCode());
         }
         return json_decode((string) $response->getBody());
@@ -87,7 +87,7 @@ class APIClient {
      * @throws \Exception
      */
     public function post( $request, $parameters = array() ){
-        return $this->request( $this->apiUrl . $request,'', $parameters,'POST');
+        return $this->request( $request,'', $parameters,'POST');
     }
 
     /**
