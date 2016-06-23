@@ -5,7 +5,7 @@ namespace Deliv;
  */
 class FetchEstimate {
     
-    function __construct(argument)
+    function __construct()
     {
         # code...
     }

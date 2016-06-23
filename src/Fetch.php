@@ -5,7 +5,7 @@ namespace Deliv;
  */
 class Fetch {
     
-    function __construct(argument)
+    function __construct()
     {
         # code...
     }
