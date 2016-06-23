@@ -10,12 +10,8 @@ include '../vendor/autoload.php';
 use Deliv\Stores;
 class StoresTest extends PHPUnit_Framework_TestCase {
 
-
   public static function setUpBeforeClass() {
-
     define('DELIV_API_KEY','0788494431f585b5a6281540c50175b99be4');
-
-
   }
 
   public function testListStores()
@@ -26,7 +22,7 @@ class StoresTest extends PHPUnit_Framework_TestCase {
 
     foreach($results as $store){
 
-      
+      $this->assertInstanceOf('Deliv\Store',$store);
     }
 
 
