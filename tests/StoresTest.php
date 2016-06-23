@@ -2,7 +2,7 @@
 /**
  * Copyright (c) 2016
  */
-include '../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 /**
  * User: Joseph Jozwik
  * Date: 6/22/2016
@@ -11,7 +11,7 @@ use Deliv\Stores;
 class StoresTest extends PHPUnit_Framework_TestCase {
 
   public static function setUpBeforeClass() {
-    
+
   }
 
   public function testListStores()
