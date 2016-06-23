@@ -25,6 +25,7 @@
             <directory>./results</directory>
         </blacklist>
         <whitelist>
+            <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
     <php>
