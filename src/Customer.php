@@ -6,7 +6,7 @@
 
 namespace Deliv;
 
-class Customer {
+class Customer  extends DelivAPI {
   public $first_name; //String
   public $last_name; //String
   public $business_name; //String

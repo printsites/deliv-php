@@ -10,7 +10,7 @@
 
 namespace Deliv;
 
-class Driver {
+class Driver extends DelivAPI {
   public $name; //String
   public $photo_url; //String
   public $longitude; //double
