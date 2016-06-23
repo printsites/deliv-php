@@ -18,5 +18,16 @@ abstract class DelivAPI {
     return new APIClient(DELIV_API_KEY);
   }
 
-
+  /**
+   * @param \stdClass $obj
+   */
+  public function fill(\stdClass $obj){
+    $obj_properties = array_keys(get_object_vars($this));
+    foreach(get_object_vars($obj) as $obj_key=>$value){
+      if(in_array($obj_key,$obj_properties)){
+        $this->$obj_key=$value;
+      }
+    }
+  return $this;
+  }
 }

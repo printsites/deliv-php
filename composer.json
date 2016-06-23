@@ -13,6 +13,7 @@
         "psr-4": {"Deliv\\": "src/"}
     },
     "require": {
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "phpunit/phpunit": "^5.4"
     }
 }

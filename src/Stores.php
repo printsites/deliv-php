@@ -9,6 +9,7 @@
  */
 
 namespace Deliv;
+use Deliv\Store;
 
 class Stores extends DelivAPI {
 
@@ -22,15 +23,20 @@ class Stores extends DelivAPI {
   /**
    * @param int $page
    * @param int $per_page
-   * @return array
+   * @return array Stores
    */
-  public function ListStores($page=1,$per_page=50){
+  public function ListStores($page = 1, $per_page = 50) {
 
     $client = self::getDelivClient();
-    
-    $response = $client->get('stores');
-   // $stores[] = new Store($id, $id_alias, $name, $phone, $suite_number, $address_line_1, $address_line_2, $address_city, $address_state, $address_zipcode, $type, $offers_delivery, $offers_fetches, $metro_id);
-    return $response;
+
+    $response = $client->get('stores', array(
+      'page' => $page,
+      'per_page' => $per_page
+    ));
+    foreach ($response as $store) {
+      $stores[] = (new Store())->fill($store);
+    }
+    return $stores;
   }
 
 }

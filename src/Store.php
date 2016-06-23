@@ -10,7 +10,7 @@
 
 namespace Deliv;
 
-class Store {
+class Store extends DelivAPI {
   public $id; //String
   public $id_alias; //String
   public $name; //String
@@ -44,22 +44,10 @@ class Store {
    * @param $offers_fetches
    * @param $metro_id
    */
-  public function __construct($id, $id_alias, $name, $phone, $suite_number, $address_line_1, $address_line_2, $address_city, $address_state, $address_zipcode, $type, $offers_delivery, $offers_fetches, $metro_id) {
-    $this->id = $id;
-    $this->id_alias = $id_alias;
-    $this->name = $name;
-    $this->phone = $phone;
-    $this->suite_number = $suite_number;
-    $this->address_line_1 = $address_line_1;
-    $this->address_line_2 = $address_line_2;
-    $this->address_city = $address_city;
-    $this->address_state = $address_state;
-    $this->address_zipcode = $address_zipcode;
-    $this->type = $type;
-    $this->offers_delivery = $offers_delivery;
-    $this->offers_fetches = $offers_fetches;
-    $this->metro_id = $metro_id;
+  public function __construct() {
+  return $this;
   }
+
 
   /**
    * @return mixed

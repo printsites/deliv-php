@@ -25,7 +25,7 @@ class APIClient {
      * @param $api_key
      * @param string $apiUrl
      */
-    public function __construct($api_key, $apiUrl='https://sandbox.api.deliv.co/v2/') {
+    public function __construct($api_key, $apiUrl='https://api-sandbox.deliv.co/v2/') {
         $this->api_key = $api_key;
         $this->apiUrl=$apiUrl;
         $this->opts = array_merge(self::$defaults);
@@ -39,17 +39,19 @@ class APIClient {
      * 
      * @return mixed
      */
-    protected function request($url, $body, $parameters=array(), $request='GET'){
+    protected function request($url, $body, $parameters = array(), $request = 'GET') {
         $this->lastRequest = $url;
         $this->lastRequestData = $parameters;
 
-        $parameters = array_merge($parameters, array('api_key' => $this->api_key));
+        $parameters = array_merge($parameters, ['headers' => ['Api-Key' => $this->api_key]]);
 
         $client = new  GuzzleHttp\Client();
-        $response = $client->request('GET',$this->apiUrl.$url, $parameters);
 
-
-        return $response;
+        $response = $client->request($request, $this->apiUrl . $url, $parameters);
+        if ('200' != $response->getStatusCode()) {
+            throw new \Exception('Deliv API Request Failed. Status: ' . $response->getStatusCode());
+        }
+        return json_decode((string) $response->getBody());
     }
     
     /**
