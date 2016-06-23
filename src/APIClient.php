@@ -81,16 +81,13 @@ class APIClient {
     }
 
     /**
-     * Sends POST request to specified API endpoint
-     * @param string $request
-     * @param string $accessToken
+     * @param $request
      * @param array $parameters
-     * @example http://strava.github.io/api/v3/activities/#create
-     * @return function
+     * @return mixed
+     * @throws \Exception
      */
-    public function post( $request, $accessToken, $parameters = array() ){
-        $parameters = array_merge( $parameters, array( 'access_token' => $accessToken ) );
-        return $this->request( $this->apiUrl . $request, $parameters );
+    public function post( $request, $parameters = array() ){
+        return $this->request( $this->apiUrl . $request,'', $parameters,'POST');
     }
 
     /**

@@ -39,4 +39,14 @@ class Stores extends DelivAPI {
     return $stores;
   }
 
+  /**
+   * @param string $id_alias
+   * @return $this Store
+   */
+  public function getStoreByIDAlias($id_alias='49d09'){
+    $client = self::getDelivClient();
+    $response = $client->get('stores/id_alias/'.$id_alias);
+    return (new Store())->fill($response);
+  }
+
 }

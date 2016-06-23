@@ -19,12 +19,23 @@ class StoresTest extends PHPUnit_Framework_TestCase {
 
     $stores = new Stores();
     $results = $stores->ListStores();
-
+    /**
+     * @var $store \Deliv\Store
+     */
     foreach($results as $store){
-
       $this->assertInstanceOf('Deliv\Store',$store);
     }
 
+    return $store;
+  }
 
+  /**
+   * @depends testListStores
+   * @param $store \Deliv\Store
+   */
+  public function testgetStoreByIDAlias($store){
+    $stores = new Stores();
+    $retrivedStore =$stores->getStoreByIDAlias($store->getIdAlias());
+    $this->assertInstanceOf('Deliv\Store',$retrivedStore);
   }
 }
