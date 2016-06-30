@@ -60,7 +60,7 @@ class APIClient {
      * @param string $accessToken
      * @param array $parameters
      * @example http://strava.github.io/api/v3/athlete/#koms
-     * @return function
+     * @return \stdClass
      */
     public function get($request, $parameters=array()){
 
@@ -73,7 +73,7 @@ class APIClient {
      * @param string $accessToken
      * @param array $parameters
      * @example http://strava.github.io/api/v3/athlete/#update
-     * @return function
+     * @return \stdClass
      */
     public function put( $request, $accessToken, $parameters = array() ){
         $parameters = array_merge( $parameters, array( 'access_token' => $accessToken ) );
@@ -83,7 +83,7 @@ class APIClient {
     /**
      * @param $request
      * @param array $parameters
-     * @return mixed
+     * @return \stdClass
      * @throws \Exception
      */
     public function post( $request, $parameters = array() ){

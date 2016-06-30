@@ -43,6 +43,7 @@ class DeliveryEstimateTest extends PHPUnit_Framework_TestCase {
     $this->assertInstanceOf('Deliv\Store', $estimate->store);
     $this->assertInstanceOf('Deliv\Package', $estimate->packages[0]);
     $this->assertInstanceOf('Deliv\TimeWindows', $estimate->delivery_windows[0]);
+    $this->assertInstanceOf('Deliv\TimeWindows', $estimate->unavailable_windows[0]);
     return $estimate;
   }
 
