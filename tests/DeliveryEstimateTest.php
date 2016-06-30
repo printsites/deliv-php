@@ -35,7 +35,12 @@ class DeliveryEstimateTest extends PHPUnit_Framework_TestCase {
     }
 
     // Send ready by in 3 hours
+    
+    $default_tz = date_default_timezone_get();
+    date_default_timezone_set('UTC');
     $ready_by = date('Y-m-d\TH:i:s\Z', strtotime("+3 hours"));
+    date_default_timezone_set($default_tz);
+
     $customer_zip = $store->getAddressZipcode();
     $deliverEstimate = new \Deliv\DeliveryEstimate();
     $estimate = $deliverEstimate->getDeliveryEstimate($store->getId(), $customer_zip, $ready_by, $packages);
