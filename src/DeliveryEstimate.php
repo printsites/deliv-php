@@ -20,7 +20,7 @@ class DeliveryEstimate extends DelivAPI {
   /**
    * @param int $store_id
    * @param string $customer_zipcode
-   * @param string $ready_by
+   * @param string $ready_by iso 8601 form like 2016-06-30T22:23:00Z
    * @param array $packages
    * @return Estimate|null
    */
