@@ -14,23 +14,15 @@ namespace Deliv;
  * @license https://opensource.org/licenses/MIT MIT
  *
  */
-class Driver extends DelivAPI {
-  /**
-   * @var string $name Driver name
-   */
-  public $name; //String
-  /**
-   * @var string A URL of the driver’s profile photo
-   */
-  public $photo_url; //String
-  /**
-   * @var float The longitude of the driver’s current location
-   */
-  public $longitude; //double
-  /**
-   * @var float The latitude of the driver’s current location
-   */
-  public $latitude; //double
+class Driver extends DelivAPI
+{
+    /**
+     * @var string $name Driver name
+     * @var string A URL of the driver’s profile photo
+     * @var float The longitude of the driver’s current location
+     * @var float The latitude of the driver’s current location
+     */
+    public $name, $photo_url, $longitude, $latitude; //String
 
-  
+
 }

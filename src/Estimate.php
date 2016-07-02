@@ -20,20 +20,12 @@ class Estimate extends DelivAPI
 {
     /**
      * @var string $id
-     */
-    public $id; //String
-    /**
      * @var string $object
-     */
-    public $object; //String
-    /**
      * @var string $ready_by date(ISO 8601)
-     */
-    public $ready_by; //Date
-    /**
      * @var TimeWindows[] $delivery_windows
      */
-    public $delivery_windows; //array(DeliveryWindow)
+    public $id,$object,$ready_by,$delivery_windows; //String
+
     /**
      * @var float $distance
      */

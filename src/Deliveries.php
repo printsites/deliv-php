@@ -229,37 +229,37 @@ class Deliveries extends DelivAPI
      */
     public function setCustomerSignatureType($customer_signature_type)
     {
-        if(in_array($customer_signature_type,['recipient_signature','any_signature','leave_at_door'])) {
-            $this->customer_signature_type = $customer_signature_type;
-        } else {
+        if (!in_array($customer_signature_type, ['recipient_signature', 'any_signature', 'leave_at_door'])) {
             throw new \Exception('Invalid  customer_signature_type  valid options are recipient_signature, any_signature, leave_at_door ');
         }
+        $this->customer_signature_type = $customer_signature_type;
     }
 
     /**
      * Set destination comments
      * @param string $destination_comments Special instructions for the driver during delivery (i.e. gate codes, etc)
+     * @return void
      */
     public function setDestinationComments($destination_comments)
     {
         $this->destination_comments = $destination_comments;
-
     }
 
     /**
      * Set minimum age for recipient
      * @param int $age_required Minimum age of recipient (i.e. 21 for alcohol related deliveries)
+     * @return void
      */
     public function setAgeRequired($age_required)
     {
         $this->age_required = $age_required;
         $this->setStoreSignatureRequired(true);
-
     }
 
     /**
      * Set origin_comments 
      * @param string $origin_comments Special instructions for the driver during pickup form the store
+     * @return void
      */
     public function setOriginComments($origin_comments)
     {
