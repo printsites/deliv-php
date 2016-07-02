@@ -42,8 +42,8 @@
 
             <!--  <include / exclude filter for filelist generator, mask must follow fnmatch() requirements  -->
             <include mask="*.php" />
-            <exclude mask="vendor/*" />
-            <exclude mask="tests/*" />
+            <exclude mask="**vendor**" />
+
 
             <!--  How to handle inheritance -->
             <inheritance resolve="true">
