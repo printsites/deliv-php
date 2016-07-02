@@ -1,26 +1,18 @@
 <?php
-/**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
- * @author Joseph Jozwik <jjozwik@printsites.com>
- * @since 1.0
- * @package deliv-php-sdk
- * @version 1.0
- * @copyright Copyright (c) 2016 PrintSites
- * @license https://opensource.org/licenses/MIT MIT
- *
- */
 namespace Deliv\Tests;
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use Deliv\Stores;
 use Deliv\Package;
 use Deliv\Deliveries;
 
 /**
- * Class DeliveriesTest
- * @package Deliv\Tests
+ * DeliveriesTest
+ *
+ * @author Joseph Jozwik <jjozwik@printsites.com>
+ * @package deliv-php-sdk
+ * @version 1.0
+ * @copyright Copyright (c) 2016 PrintSites
+ * @license https://opensource.org/licenses/MIT MIT
+ *
  */
 class DeliveriesTest extends \PHPUnit_Framework_TestCase
 {

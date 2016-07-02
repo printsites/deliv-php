@@ -1,25 +1,20 @@
 <?php
+namespace Deliv;
+use GuzzleHttp;
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * APIClient
+ *
+ * API Client class used to interface with Deliv API
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
- * @since 1.0
  * @package deliv-php-sdk
  * @version 1.0
  * @copyright Copyright (c) 2016 PrintSites
  * @license https://opensource.org/licenses/MIT MIT
  *
  */
-namespace Deliv;
-use GuzzleHttp;
-
-/**
- * Class APIClient
- * @package Deliv
- */
-class APIClient {
-    
+class APIClient
+{
     private $lastRequest;
     private $lastRequestData;
     private $api_key;
@@ -32,24 +27,26 @@ class APIClient {
     /**
      * APIClient constructor.
      *
-     * @param $api_key
+     * @param string $api_key
      * @param string $apiUrl
      */
-    public function __construct($api_key, $apiUrl='https://api-sandbox.deliv.co/v2/') {
+    public function __construct($api_key, $apiUrl = 'https://api-sandbox.deliv.co/v2/')
+    {
         $this->api_key = $api_key;
-        $this->apiUrl=$apiUrl;
+        $this->apiUrl = $apiUrl;
         $this->opts = array_merge(self::$defaults);
     }
-    
+
     /**
      * Makes HTTP Request against the API
-     * @param string  $url
-     * @param array   $parameters
+     * @param string $url
+     * @param array $parameters
      * @param boolean $request
-     * 
+     *
      * @return mixed
      */
-    protected function request($url, $body, $parameters = array(), $request = 'GET') {
+    protected function request($url, $body, $parameters = array(), $request = 'GET')
+    {
         $this->lastRequest = $url;
         $this->lastRequestData = $parameters;
 
@@ -61,9 +58,9 @@ class APIClient {
         if ('299' < $response->getStatusCode()) {
             throw new \Exception('Deliv API Request Failed. Status: ' . $response->getStatusCode());
         }
-        return json_decode((string) $response->getBody());
+        return json_decode((string)$response->getBody());
     }
-    
+
     /**
      * Sends GET request to specified API endpoint
      * @param string $request
@@ -72,9 +69,10 @@ class APIClient {
      * @example http://strava.github.io/api/v3/athlete/#koms
      * @return \stdClass
      */
-    public function get($request, $parameters=array()){
+    public function get($request, $parameters = array())
+    {
 
-        return $this->request($request,'', $parameters,'GET');
+        return $this->request($request, '', $parameters, 'GET');
     }
 
     /**
@@ -85,9 +83,10 @@ class APIClient {
      * @example http://strava.github.io/api/v3/athlete/#update
      * @return \stdClass
      */
-    public function put( $request, $accessToken, $parameters = array() ){
-        $parameters = array_merge( $parameters, array( 'access_token' => $accessToken ) );
-        return $this->request( $this->apiUrl . $request, $parameters, 'PUT' );
+    public function put($request, $accessToken, $parameters = array())
+    {
+        $parameters = array_merge($parameters, array('access_token' => $accessToken));
+        return $this->request($this->apiUrl . $request, $parameters, 'PUT');
     }
 
     /**
@@ -96,8 +95,9 @@ class APIClient {
      * @return \stdClass
      * @throws \Exception
      */
-    public function post( $request, $parameters = array() ){
-        return $this->request( $request,'', $parameters,'POST');
+    public function post($request, $parameters = array())
+    {
+        return $this->request($request, '', $parameters, 'POST');
     }
 
     /**
@@ -108,9 +108,10 @@ class APIClient {
      * @example http://strava.github.io/api/v3/activities/#delete
      * @return function
      */
-    public function delete( $request, $accessToken, $parameters = array() ){
-        $parameters = array_merge( $parameters, array( 'access_token' => $accessToken ) );
-        return $this->request( $this->apiUrl . $request, $parameters, 'DELETE' );
+    public function delete($request, $accessToken, $parameters = array())
+    {
+        $parameters = array_merge($parameters, array('access_token' => $accessToken));
+        return $this->request($this->apiUrl . $request, $parameters, 'DELETE');
     }
-    
+
 }

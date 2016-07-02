@@ -1,28 +1,35 @@
 <?php
+namespace Deliv;
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * Driver
+ *
+ * A driver object represents the Deliv driver that has been assigned to deliver your package(s).
+ * Keep in mind that due to the real-time routing of our service, drivers are assigned just-in-time,
+ * and may be re-assigned at any time depending on route optimization.
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
- * @since 1.0
  * @package deliv-php-sdk
- * @version 1.0
+ * @version version 1.0
  * @copyright Copyright (c) 2016 PrintSites
  * @license https://opensource.org/licenses/MIT MIT
  *
  */
-
-namespace Deliv;
-/**
- * Represents a Deliv driver
- *
- * Class Driver
- * @package Deliv
- */
 class Driver extends DelivAPI {
+  /**
+   * @var string $name Driver name
+   */
   public $name; //String
+  /**
+   * @var string A URL of the driver’s profile photo
+   */
   public $photo_url; //String
+  /**
+   * @var float The longitude of the driver’s current location
+   */
   public $longitude; //double
+  /**
+   * @var float The latitude of the driver’s current location
+   */
   public $latitude; //double
 
   

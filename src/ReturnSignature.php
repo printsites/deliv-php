@@ -1,10 +1,13 @@
 <?php
+namespace Deliv;
+
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * ReturnSignature
+ *
+ * A return signature object contains a URL of the return
+ * signature photo and the last name captured at time of return.
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
- * @since 1.0
  * @package deliv-php-sdk
  * @version 1.0
  * @copyright Copyright (c) 2016 PrintSites
@@ -12,12 +15,13 @@
  *
  */
 
-namespace Deliv;
-/**
- * Class ReturnSignature
- * @package Deliv
- */
 class ReturnSignature {
-  public $photo_url; //String
-  public $last_name; //String
+  /**
+   * @var string $photo_url A URL of the signature
+   */
+  public $photo_url;
+  /**
+   * @var string $last_name The last name of the person who signed for the return
+   */
+  public $last_name;
 }

@@ -1,44 +1,59 @@
 <?php
+namespace Deliv;
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * Package
+ *
+ * A package is an object representing an item to be delivered.
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
- * @since 1.0
  * @package deliv-php-sdk
  * @version 1.0
  * @copyright Copyright (c) 2016 PrintSites
  * @license https://opensource.org/licenses/MIT MIT
  *
  */
-namespace Deliv;
-/**
- * Represents a Package for Delivery
- * Class Package
- * @package Deliv
- */
 class Package extends DelivAPI {
-
-  public $name; //String
-  public $price; //String
-  public $SKU; //String
-  public $height; //double
-  public $width; //int
-  public $depth; //int
+  /**
+   * @var string $name (Required)
+   */
+  public $name;
+  /**
+   * @var string $price (Required)
+   */
+  public $price;
+  /**
+   * @var string (Optional)
+   */
+  public $SKU;
+  /**
+   * @var float $height (Optional) inches
+   */
+  public $height;
+  /**
+   * @var float $width (Optional) inches
+   */
+  public $width;
+  /**
+   * @var float $depth (Optional) inches
+   */
+  public $depth;
+  /**
+   * @var float $weight (Optional) pounds
+   */
   public $weight; //double
 
   /**
    * Packages constructor.
    *
-   * @param $name
-   * @param $price
-   * @param $SKU
-   * @param $height
-   * @param $width
-   * @param $depth
-   * @param $weight
+   * @param $name (Required)
+   * @param $price (Required)
+   * @param $SKU (Optional) inches
+   * @param float $height Optional) inches
+   * @param float $width (Optional) inches
+   * @param float $depth (Optional) inches
+   * @param float $weight (Optional) inches
    */
-  public function __construct($name = '', $price = NULL, $SKU = NULL, $height = NULL, $width = NULL, $depth = NULL, $weight = '') {
+  public function __construct($name = 'Package1', $price = '$1.00', $SKU = 1.2, $height = 1.2, $width = 1.2, $depth = 1.2, $weight = 1.2) {
     $this->name = $name;
     $this->price = $price;
     $this->SKU = $SKU;

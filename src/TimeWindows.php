@@ -1,96 +1,53 @@
 <?php
+namespace Deliv;
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * TimeWindows
+ *
+ * A Time Window is an object that represents an available window when a
+ * delivery or fetch will take place with the customer.
+ *
+ * Each Time Window also contains a expires_at property. The expires_at
+ * is a timestamp by which your fetch or delivery must be created to use
+ * this window. If you wait until after the expiration time to submit the
+ * delivery, you will receive a 400 Illegal Time Window response.
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
- * @since 1.0
  * @package deliv-php-sdk
  * @version 1.0
  * @copyright Copyright (c) 2016 PrintSites
  * @license https://opensource.org/licenses/MIT MIT
  *
  */
-namespace Deliv;
-/**
- * TimeWindows object is used in several places on Deliv API  to provide time estimates with expiration.
- * Class TimeWindows
- * @package Deliv
- */
 class TimeWindows extends DelivAPI {
+  /**
+   * @var string $id uuid id
+   */
   public $id = '04eac8c3-05cf-4d5b-80e3-6121b4229a2e';
+  /**
+   * @var null|string $starts_at Represents the start of the window
+   */
   public $starts_at = '2014-01-29T05:00:00Z';
+  /**
+   * @var null|string $ends_at Represents the end of the window
+   */
   public $ends_at = '2014-01-29T05:00:00Z';
+  /**
+   * @var string $expires_at The point at which this time window is no longer available
+   */
   public $expires_at = '2014-01-29T05:00:00Z';
 
   /**
    * TimeWindows constructor.
    *
-   * @param string $id
+   * @param string $id uuid
    * @param string $starts_at can be null
-   * @param string $ends_at
-   * @param string $expires_at
+   * @param string $ends_at end of window
+   * @param string $expires_at expiration time
    */
   public function __construct($id = '04eac8c3-05cf-4d5b-80e3-6121b4229a2e', $starts_at = NULL, $ends_at = '2014-01-29T05:00:00Z', $expires_at = '2014-01-29T05:00:00Z') {
     $this->id = $id;
     $this->starts_at = $starts_at;
     $this->ends_at = $ends_at;
-    $this->expires_at = $expires_at;
-  }
-
-  /**
-   * @return string
-   */
-  public function getId() {
-    return $this->id;
-  }
-
-  /**
-   * @param string $id
-   */
-  public function setId($id) {
-    $this->id = $id;
-  }
-
-  /**
-   * @return null|string
-   */
-  public function getStartsAt() {
-    return $this->starts_at;
-  }
-
-  /**
-   * @param null|string $starts_at
-   */
-  public function setStartsAt($starts_at) {
-    $this->starts_at = $starts_at;
-  }
-
-  /**
-   * @return string
-   */
-  public function getEndsAt() {
-    return $this->ends_at;
-  }
-
-  /**
-   * @param string $ends_at
-   */
-  public function setEndsAt($ends_at) {
-    $this->ends_at = $ends_at;
-  }
-
-  /**
-   * @return string
-   */
-  public function getExpiresAt() {
-    return $this->expires_at;
-  }
-
-  /**
-   * @param string $expires_at
-   */
-  public function setExpiresAt($expires_at) {
     $this->expires_at = $expires_at;
   }
 

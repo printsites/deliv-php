@@ -1,24 +1,20 @@
 <?php
+namespace Deliv;
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * Estimate
+ *
+ * Delivery Estimates are used to validate address information, as well as get
+ * currently available delivery windows for a delivery. Delivery Estimates also
+ * ensure that the Deliv service is currently servicing that metro area. For
+ * these reasons, a Delivery Estimate should be created in advance of creating
+ * an actual Delivery.
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
- * @since 1.0
  * @package deliv-php-sdk
  * @version 1.0
  * @copyright Copyright (c) 2016 PrintSites
  * @license https://opensource.org/licenses/MIT MIT
  *
- */
-namespace Deliv;
-
-
-/**
- * Estimate object.
- * 
- * Class Estimate
- * @package Deliv
  */
 class Estimate extends DelivAPI
 {

@@ -1,8 +1,14 @@
 <?php
+
+namespace Deliv;
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * Store
+ *
+ * A store is an object that represents one of you physical brick
+ * and mortar places of business, where our drivers pickup packages
+ * from you for your customers.
+ *
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
  * @since 1.0
  * @package deliv-php-sdk
@@ -10,13 +16,6 @@
  * @copyright Copyright (c) 2016 PrintSites
  * @license https://opensource.org/licenses/MIT MIT
  *
- */
-namespace Deliv;
-/**
- * Store object
- * 
- * Class Store
- * @package Deliv
  */
 class Store extends DelivAPI {
   public $id; //String
@@ -34,24 +33,6 @@ class Store extends DelivAPI {
   public $offers_fetches; //boolean
   public $metro_id;
 
-  /**
-   * Store constructor.
-   *
-   * @param $id
-   * @param $id_alias
-   * @param $name
-   * @param $phone
-   * @param $suite_number
-   * @param $address_line_1
-   * @param $address_line_2
-   * @param $address_city
-   * @param $address_state
-   * @param $address_zipcode
-   * @param $type
-   * @param $offers_delivery
-   * @param $offers_fetches
-   * @param $metro_id
-   */
   public function __construct() {
   return $this;
   }

@@ -1,24 +1,16 @@
 <?php
+namespace Deliv\Tests;
+use Deliv\Stores;
+
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * StoresTest
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
- * @since 1.0
  * @package deliv-php-sdk
  * @version 1.0
  * @copyright Copyright (c) 2016 PrintSites
  * @license https://opensource.org/licenses/MIT MIT
  *
- */
-namespace Deliv\Tests;
-require_once __DIR__ . '/../vendor/autoload.php';
-
-use Deliv\Stores;
-
-/**
- * Class StoresTest
- * @package Deliv\Tests
  */
 class StoresTest extends \PHPUnit_Framework_TestCase {
 

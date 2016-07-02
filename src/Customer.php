@@ -1,46 +1,72 @@
 <?php
+namespace Deliv;
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * Customer
+ *
+ * An object representing your customer, or the recipient of the delivery.
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
- * @since 1.0
  * @package deliv-php-sdk
  * @version 1.0
  * @copyright Copyright (c) 2016 PrintSites
  * @license https://opensource.org/licenses/MIT MIT
  *
  */
-
-namespace Deliv;
-/**
- * Class Customer
- * @package Deliv
- */
 class Customer  extends DelivAPI {
-  public $first_name; //String
-  public $last_name; //String
-  public $business_name; //String
-  public $phone; //String
-  public $email; //String
+
+  /**
+   * @var string $first_name (Required)
+   */
+  public $first_name;
+  /**
+   * @var string $last_name (Required)
+   */
+  public $last_name;
+  /**
+   * @var string $business_name (Optional)
+   */
+  public $business_name;
+  /**
+   * @var string $phone (Required) Minimum 10 digits
+   */
+  public $phone;
+  /**
+   * @var string $email (Optional)
+   */
+  public $email;
+  /**
+   * @var string $address_line_1 (Required)
+   */
   public $address_line_1; //String
-  public $address_line_2; //String
-  public $address_city; //String
-  public $address_state; //String
-  public $address_zipcode; //String
+  /**
+   * @var string $address_line2 (Optional)
+   */
+  public $address_line_2;
+  /**
+   * @var string $address_city (Required)
+   */
+  public $address_city;
+  /**
+   * @var string $address_state (Required) Two letter abbreviation (i.e. ‘CA’)
+   */
+  public $address_state;
+  /**
+   * @var string $address_zipcode (Required) Standard 5-digit zip
+   */
+  public $address_zipcode;
   /**
    * Customer constructor.
    *
-   * @param string $first_name
-   * @param string $last_name
-   * @param string $business_name
-   * @param string $phone
-   * @param string $email
-   * @param string $address_line1
-   * @param string $address_line2
-   * @param string $address_city
-   * @param string $address_state
-   * @param string $address_zipcode
+   * @param string $first_name (Required)
+   * @param string $last_name (Required)
+   * @param string $business_name (Optional)
+   * @param string $phone (Required)
+   * @param string $email (Optional)
+   * @param string $address_line1 (Required)
+   * @param string $address_line2 (Optional)
+   * @param string $address_city (Required)
+   * @param string $address_state (Required) Two letter abbreviation (i.e. ‘CA’)
+   * @param string $address_zipcode (Required) Standard 5-digit zip
    */
   public function __construct($first_name='', $last_name='', $business_name='', $phone='', $email='', $address_line1='', $address_line2='', $address_city='', $address_state='', $address_zipcode='') {
     $this->first_name = $first_name;

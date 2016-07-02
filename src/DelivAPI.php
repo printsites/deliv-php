@@ -1,8 +1,10 @@
 <?php
+namespace Deliv;
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * DelivAPI
+ *
+ * Abstract class for creating APIClient and fill
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
  * @since 1.0
  * @package deliv-php-sdk
@@ -11,21 +13,21 @@
  * @license https://opensource.org/licenses/MIT MIT
  *
  */
-namespace Deliv;
-/**
- * Class DelivAPI
- * @package Deliv
- */
 abstract class DelivAPI {
+
   /**
-   * @return \Deliv\APIClient
+   * Return static Deliv APIClient
+   * @constant string DELIV_API_KEY Deliv API Key
+   * @return APIClient
    */
   static function getDelivClient(){
     return new APIClient(DELIV_API_KEY);
   }
 
   /**
+   * Populate class with matching parameters from stdClass
    * @param \stdClass $obj
+   * @return $this
    */
   public function fill(\stdClass $obj){
     $obj_properties = array_keys(get_object_vars($this));

@@ -1,34 +1,25 @@
 <?php
+namespace Deliv;
 /**
- * Copyright (c) 2016 PrintSites
- * User: Joseph Jozwik
- * Date: 6/30/2016
+ * Stores
+ *
+ *
  * @author Joseph Jozwik <jjozwik@printsites.com>
- * @since 1.0
  * @package deliv-php-sdk
  * @version 1.0
  * @copyright Copyright (c) 2016 PrintSites
  * @license https://opensource.org/licenses/MIT MIT
  *
  */
-namespace Deliv;
-
-/**
- * Class Stores
- * @package Deliv
- */
 class Stores extends DelivAPI {
-
   /**
-   * @param int $page
-   * @param int $per_page
-   * $ curl -X GET https://api.deliv.co/v2/stores --header "Api-Key:YUIO23edjklDSSA" -d per_page=50
+   * ListStores
    *
-   */
-
-  /**
-   * @param int $page
-   * @param int $per_page
+   * Returns a paginated set of stores associated with your account.
+   *
+   * @example $ curl -X GET https://api.deliv.co/v2/stores --header "Api-Key:YOURKEYHERE" -d per_page=50
+   * @param int $page (Optional)
+   * @param int $per_page (Optional) 1-100. Default is 25.
    * @return array Stores
    */
   public function ListStores($page = 1, $per_page = 50) {
@@ -46,7 +37,11 @@ class Stores extends DelivAPI {
   }
 
   /**
-   * @param string $id_alias
+   * getStoreByIDAlias
+   *
+   * Retrieves the details for a store.
+   *
+   * @param string $id_alias (Required) The id of the store
    * @return $this Store
    */
   public function getStoreByIDAlias($id_alias = '49d09') {
