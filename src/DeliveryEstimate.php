@@ -24,8 +24,7 @@ class DeliveryEstimate extends DelivAPI {
   public function __construct() {
 
   }
-
-
+  
   /**
    * @param int $store_id
    * @param string $customer_zipcode

@@ -32,7 +32,7 @@ class DeliveryEstimateTest extends \PHPUnit_Framework_TestCase {
     $stores = new Stores();
     $results = $stores->ListStores();
     /**
-     * @var $store \Deliv\Store
+     * @var \Deliv\Store $store
      */
     foreach ($results as $store) {
 

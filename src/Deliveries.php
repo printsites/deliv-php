@@ -18,100 +18,34 @@ class Deliveries extends DelivAPI
 
     /**
      * @var string $id uuid for Delivery. Example: "67e382e5-ffd7-4af5-a8e5-9382904faf93"
-     */
-    public $id;
-    /**
      * @var string $object
-     */
-    public $object;
-    /**
-     * @var string $tracking_code  Order tracking number for deliv package. Example: "1V8XJJCV"
-     */
-    public $tracking_code;
-    /**
+     * @var string $tracking_code Order tracking number for deliv package. Example: "1V8XJJCV"
      * @var string $order_reference Your internal order number, for reconciling. Example: "12324"
-     */
-    public $order_reference;
-    /**
      * @var string $alt_id_2 Additional internal order number, for reconciling
-     */
-    public $alt_id_1 ;
-    /**
      * @var string $alt_id_2 Additional internal order number, for reconciling
-     */
-    public $alt_id_2;
-    /**
      * @var string $status The status of the delivery. Example: "pending_delivery_time|assigned|in_transit|delivered|returned|canceled"
-     */
-    public $status;
-    /**
      * @var Driver $driver
-     */
-    public $driver; //Driver
-    /**
      * @var string $estimated_delivery_at The time when the delivery can be picked up date(ISO 8601). Example "2014-01-29T05:00:00Z"
-     */
-    public $estimated_delivery_at;
-    /**
      * @var string $delivered_at date(ISO 8601) Example "2014-01-29T05:00:00Z"
-     */
-    public $delivered_at;
-    /**
      * @var string $ready_by date(ISO 8601)
-     */
-    public $ready_by;
-    /**
      * @var TimeWindows $delivery_window The chosen delivery window from your delivery estimate
-     */
-    public $delivery_window;
-    /**
      * @var Customer $customer The customer the packages will be delivered to
-     */
-    public $customer;
-    /**
      * @var Store $store The store the packages will be picked up from
-     */
-    public $store;
-    /**
      * @var string $origin_comments Comments that are sent to the store for the package to be delivered.
-     */
-    public $origin_comments;
-    /**
      * @var bool $store_signature_required (Optional) Special instructions for the driver during pickup (i.e. what counter to pickup from)
-     */
-    public $store_signature_required;
-    /**
      * @var string $destination_comments (Optional) Special instructions for the driver during delivery (i.e. gate codes, etc)
-     */
-    public $destination_comments;
-    /**
-     * @var string $customer_signature_type  (Optional) Valid options any_signature, leave_at_door, recipient_signature
-     */
-    public $customer_signature_type;
-    /**
+     * @var string $customer_signature_type (Optional) Valid options any_signature, leave_at_door, recipient_signature
      * @var int $age_required (Optional) Minimum age of receiver who can sign for package. Sets signature required to true
-     */
-    public $age_required;
-    /**
      * @var string $webhook_url A URL where you can receive updates on this delivery
-     */
-    public $webhook_url;
-    /**
      * @var array $packages A set of one or more packages to be delivered
-     */
-    public $packages;
-    /**
      * @var string $exception The exception that lead to the delivery’s cancel or return
-     */
-    public $exception;
-    /**
      * @var bool $being_returned Whether or not the delivery is being returned
-     */
-    public $being_returned;
-    /**
      * @var string $return_signature The return signature, if captured and the delivery has been returned
+     *
      */
-    public $return_signature;
+    public $id, $object, $tracking_code, $order_reference, $alt_id_1, $alt_id_2, $status, $driver, $estimated_delivery_at, $delivered_at, $ready_by, $delivery_window;
+    public $customer, $store, $origin_comments, $store_signature_required, $destination_comments, $customer_signature_type, $age_required, $webhook_url, $packages;
+    public $exception, $being_returned, $return_signature;
 
     /**
      * Deliveries constructor.
@@ -129,39 +63,40 @@ class Deliveries extends DelivAPI
      * @param string $order_number Order reference number
      * @param string $delivery_window_id Selected delivery window
      */
-    public function createNewDelivery($estimate,$customer,$order_number='312312321',$delivery_window_id='1dafc86c-6e57-427a-a3df-afdf7ad03682'){
-        $requestFields =  [
+    public function createNewDelivery($estimate, $customer, $order_number = '312312321', $delivery_window_id = '1dafc86c-6e57-427a-a3df-afdf7ad03682')
+    {
+        $requestFields = [
             'store_id' => $estimate->store->id,
-            'order_reference'=>$order_number,
+            'order_reference' => $order_number,
             'customer' => $customer,
             'delivery_window_id' => $delivery_window_id,
             'ready_by' => $estimate->ready_by,
             'packages' => $estimate->packages
         ];
-        if(true===$this->store_signature_required){
-            $requestFields['store_signature_required']=true;
+        if (true === $this->store_signature_required) {
+            $requestFields['store_signature_required'] = true;
         }
-        if(in_array($this->customer_signature_type,['recipient_signature','any_signature','leave_at_door'])){
-            $requestFields['store_signature_required']=true;
+        if (in_array($this->customer_signature_type, ['recipient_signature', 'any_signature', 'leave_at_door'])) {
+            $requestFields['store_signature_required'] = true;
         }
-        if(''!=$this->webhook_url){
-            $requestFields['webhook_url']=$this->webhook_url;
+        if ('' != $this->webhook_url) {
+            $requestFields['webhook_url'] = $this->webhook_url;
         }
-        if(1 < $this->age_required){
-            $requestFields['age_required']=$this->age_required;
+        if (1 < $this->age_required) {
+            $requestFields['age_required'] = $this->age_required;
         }
-        if($this->destination_comments!=''){
-            $requestFields['destination_comments']=$this->destination_comments;
+        if ($this->destination_comments != '') {
+            $requestFields['destination_comments'] = $this->destination_comments;
         }
-        if($this->origin_comments!=''){
-            $requestFields['origin_comments']=$this->origin_comments;
+        if ($this->origin_comments != '') {
+            $requestFields['origin_comments'] = $this->origin_comments;
         }
 
         $client = self::getDelivClient();
         $response = $client->post('deliveries', [
             'json' => [
                 'store_id' => $estimate->store->id,
-                'order_reference'=>$order_number,
+                'order_reference' => $order_number,
                 'customer' => $customer,
                 'delivery_window_id' => $delivery_window_id,
                 'ready_by' => $estimate->ready_by,
@@ -169,9 +104,9 @@ class Deliveries extends DelivAPI
             ]
         ]);
 
-       $this->fill($response);
+        $this->fill($response);
         //Recast Responses to SDK Models
-        $packages=array();
+        $packages = array();
         foreach ($response->packages as $package) {
             $packages[] = (new Package())->fill($package);
         }
@@ -186,13 +121,14 @@ class Deliveries extends DelivAPI
      * @param $delivery_id
      * @return void
      */
-    public function retrieveDeliveryStatus($delivery_id){
+    public function retrieveDeliveryStatus($delivery_id)
+    {
 
         $client = self::getDelivClient();
-        $response = $client->get('deliveries/'.$delivery_id);
+        $response = $client->get('deliveries/' . $delivery_id);
         $this->fill($response);
         //Recast Responses to SDK Models
-        $packages=array();
+        $packages = array();
         foreach ($response->packages as $package) {
             $packages[] = (new Package())->fill($package);
         }
@@ -210,7 +146,7 @@ class Deliveries extends DelivAPI
     {
         $this->store_signature_required = $store_signature_required;
         // Set at least any signature
-        if(null == $this->customer_signature_type) {
+        if (null == $this->customer_signature_type) {
             $this->setCustomerSignatureType('any_signature');
         }
     }
@@ -219,9 +155,9 @@ class Deliveries extends DelivAPI
      * Sets $customer_signature_type.
      *
      * <ul>
-     *  <li>recipient_signature	The signature must be from the customer specified in the order</li>
-     *  <li>any_signature	The signature can be from anyone at the customer address</li>
-     *  <li>leave_at_door	No signature is required; if the driver deems it safe, packages will be left at customer site. This option is not allowed if age_required is present and > 0.</li>
+     *  <li>recipient_signature    The signature must be from the customer specified in the order</li>
+     *  <li>any_signature    The signature can be from anyone at the customer address</li>
+     *  <li>leave_at_door    No signature is required; if the driver deems it safe, packages will be left at customer site. This option is not allowed if age_required is present and > 0.</li>
      * </ul>
      *
      * @param string $customer_signature_type valid options recipient_signature, any_signature, leave_at_door
@@ -257,7 +193,7 @@ class Deliveries extends DelivAPI
     }
 
     /**
-     * Set origin_comments 
+     * Set origin_comments
      * @param string $origin_comments Special instructions for the driver during pickup form the store
      * @return void
      */
@@ -265,7 +201,6 @@ class Deliveries extends DelivAPI
     {
         $this->origin_comments = $origin_comments;
     }
-
 
 
 }

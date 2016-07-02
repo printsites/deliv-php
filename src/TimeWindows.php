@@ -18,37 +18,30 @@ namespace Deliv;
  * @license https://opensource.org/licenses/MIT MIT
  *
  */
-class TimeWindows extends DelivAPI {
-  /**
-   * @var string $id uuid id
-   */
-  public $id = '04eac8c3-05cf-4d5b-80e3-6121b4229a2e';
-  /**
-   * @var null|string $starts_at Represents the start of the window
-   */
-  public $starts_at = '2014-01-29T05:00:00Z';
-  /**
-   * @var null|string $ends_at Represents the end of the window
-   */
-  public $ends_at = '2014-01-29T05:00:00Z';
-  /**
-   * @var string $expires_at The point at which this time window is no longer available
-   */
-  public $expires_at = '2014-01-29T05:00:00Z';
+class TimeWindows extends DelivAPI
+{
+    /**
+     * @var string $id uuid id
+     * @var null|string $starts_at Represents the start of the window. Example: '2014-01-29T05:00:00Z'
+     * @var null|string $ends_at Represents the end of the window Example: '2014-01-29T05:00:00Z'
+     * @var string $expires_at The point at which this time window is no longer available. Example: '2014-01-29T05:00:00Z'
+     */
+    public $id, $starts_at, $ends_at, $expires_at;
 
-  /**
-   * TimeWindows constructor.
-   *
-   * @param string $id uuid
-   * @param string $starts_at can be null
-   * @param string $ends_at end of window
-   * @param string $expires_at expiration time
-   */
-  public function __construct($id = '04eac8c3-05cf-4d5b-80e3-6121b4229a2e', $starts_at = NULL, $ends_at = '2014-01-29T05:00:00Z', $expires_at = '2014-01-29T05:00:00Z') {
-    $this->id = $id;
-    $this->starts_at = $starts_at;
-    $this->ends_at = $ends_at;
-    $this->expires_at = $expires_at;
-  }
+    /**
+     * TimeWindows constructor.
+     *
+     * @param string $id uuid
+     * @param string $starts_at can be null
+     * @param string $ends_at end of window
+     * @param string $expires_at expiration time
+     */
+    public function __construct($id = '04eac8c3-05cf-4d5b-80e3-6121b4229a2e', $starts_at = NULL, $ends_at = '2014-01-29T05:00:00Z', $expires_at = '2014-01-29T05:00:00Z')
+    {
+        $this->id = $id;
+        $this->starts_at = $starts_at;
+        $this->ends_at = $ends_at;
+        $this->expires_at = $expires_at;
+    }
 
 }
