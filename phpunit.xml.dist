@@ -32,6 +32,11 @@
     </filter>
     <php>
         <const name="DELIV_API_KEY" value="YOURAPIKEYHERE="/>
+        <const name="TEST_EMAIL_ADDRESS" value="[TEST_EMAIL_HERE]"/>
+        <const name="TEST_EMAIL_PASSWORD" value="[TEST_EMAIL_PASSWORD_HERE]"/>
+        <const name="TEST_EMAIL_SERVER" value="[TEST_EMAIL_SERVER_HERE]"/>
+        <const name="TEST_EMAIL_SERVER_PORT" value="[TEST_EMAIL_SERVER_PORT_HERE]"/>
+        <const name="TEST_WEBHOOK" value="[TEST_WEBHOOK_HERE]"/>
     </php>
 
     <logging>

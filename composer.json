@@ -12,6 +12,11 @@
     "autoload": {
         "psr-4": {"Deliv\\": "src/"}
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Deliv\\Tests\\": "tests/"
+        }
+    },
     "require": {
         "guzzlehttp/guzzle": "^6.2",
         "phpunit/phpunit": "^5.4"

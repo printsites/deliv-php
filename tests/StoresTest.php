@@ -2,6 +2,7 @@
 /**
  * Copyright (c) 2016
  */
+namespace Deliv\Tests;
 require_once __DIR__ . '/../vendor/autoload.php';
 /**
  * User: Joseph Jozwik
@@ -9,7 +10,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
  */
 use Deliv\Stores;
 
-class StoresTest extends PHPUnit_Framework_TestCase {
+class StoresTest extends \PHPUnit_Framework_TestCase {
 
   public static function setUpBeforeClass() {
 

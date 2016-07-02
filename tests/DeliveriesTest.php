@@ -2,7 +2,7 @@
 /**
  * Copyright (c) 2016 PrintSites
  */
-
+namespace Deliv\Tests;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Deliv\Stores;
@@ -16,7 +16,7 @@ use Deliv\Deliveries;
  * User: Joseph Jozwik
  * Date: 6/30/2016
  */
-class DeliveriesTest extends PHPUnit_Framework_TestCase
+class DeliveriesTest extends \PHPUnit_Framework_TestCase
 {
 
 
