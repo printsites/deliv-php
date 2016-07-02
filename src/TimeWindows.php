@@ -1,15 +1,22 @@
 <?php
 /**
- * Copyright (c) 2016
- */
-
-/**
+ * Copyright (c) 2016 PrintSites
  * User: Joseph Jozwik
- * Date: 6/22/2016
+ * Date: 6/30/2016
+ * @author Joseph Jozwik <jjozwik@printsites.com>
+ * @since 1.0
+ * @package deliv-php-sdk
+ * @version 1.0
+ * @copyright Copyright (c) 2016 PrintSites
+ * @license https://opensource.org/licenses/MIT MIT
+ *
  */
-
 namespace Deliv;
-
+/**
+ * TimeWindows object is used in several places on Deliv API  to provide time estimates with expiration.
+ * Class TimeWindows
+ * @package Deliv
+ */
 class TimeWindows extends DelivAPI {
   public $id = '04eac8c3-05cf-4d5b-80e3-6121b4229a2e';
   public $starts_at = '2014-01-29T05:00:00Z';

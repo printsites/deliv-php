@@ -6,19 +6,18 @@
  * @author Joseph Jozwik <jjozwik@printsites.com>
  * @since 1.0
  * @package deliv-php-sdk
+ * @version 1.0
+ * @copyright Copyright (c) 2016 PrintSites
+ * @license https://opensource.org/licenses/MIT MIT
  *
  */
 
-/**
- * User: Joseph Jozwik
- * Date: 6/30/2016
- */
-
 namespace Deliv;
-
-
-use phpDocumentor\Reflection\Types\String_;
-
+/**
+ * Used to Create deliveries, check status of delivery, make changes to deliveries
+ * Class Deliveries
+ * @package Deliv
+ */
 class Deliveries extends DelivAPI
 {
 

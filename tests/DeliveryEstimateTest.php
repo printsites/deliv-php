@@ -1,22 +1,35 @@
 <?php
+/**
+ * Copyright (c) 2016 PrintSites
+ * User: Joseph Jozwik
+ * Date: 6/30/2016
+ * @author Joseph Jozwik <jjozwik@printsites.com>
+ * @since 1.0
+ * @package deliv-php-sdk
+ * @version 1.0
+ * @copyright Copyright (c) 2016 PrintSites
+ * @license https://opensource.org/licenses/MIT MIT
+ *
+ */
 namespace Deliv\Tests;
 require_once __DIR__ . '/../vendor/autoload.php';
 
-/**
- * User: Joseph Jozwik
- * Date: 6/22/2016
- */
 use Deliv\Stores;
-use Deliv\Store;
 use Deliv\Package;
-use Deliv\TimeWindows;
 
+/**
+ * Class DeliveryEstimateTest
+ * @package Deliv\Tests
+ */
 class DeliveryEstimateTest extends \PHPUnit_Framework_TestCase {
 
   public static function setUpBeforeClass() {
 
   }
 
+  /**
+   * @return \Deliv\Estimate|null
+   */
   public function testgetDeliveryEstimate() {
 
     $package = new Package();
