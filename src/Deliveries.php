@@ -181,7 +181,20 @@ class Deliveries extends DelivAPI
         $this->store = (new Store())->fill($response->store);
     }
 
-    public function getDeliveryStatus($delivery_id){
+    public function retrieveDeliveryStatus($delivery_id){
+
+        $client = self::getDelivClient();
+        $response = $client->get('deliveries/'.$delivery_id);
+        $this->fill($response);
+        //Recast Responses to SDK Models
+        $packages=array();
+        foreach ($response->packages as $package) {
+            $packages[] = (new Package())->fill($package);
+        }
+        $this->packages = $packages;
+        $this->customer = (new Customer())->fill($response->customer);
+        $this->delivery_window = (new TimeWindows())->fill($response->delivery_window);
+        $this->store = (new Store())->fill($response->store);
 
     }
 
