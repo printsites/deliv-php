@@ -43,9 +43,30 @@ class Deliveries extends DelivAPI
      * @var string $return_signature The return signature, if captured and the delivery has been returned
      *
      */
-    public $id, $object, $tracking_code, $order_reference, $alt_id_1, $alt_id_2, $status, $driver, $estimated_delivery_at, $delivered_at, $ready_by, $delivery_window;
-    public $customer, $store, $origin_comments, $store_signature_required, $destination_comments, $customer_signature_type, $age_required, $webhook_url, $packages;
-    public $exception, $being_returned, $return_signature;
+    public $id;
+    public $object;
+    public $tracking_code;
+    public $order_reference;
+    public $alt_id_1;
+    public $alt_id_2;
+    public $status;
+    public $driver;
+    public $estimated_delivery_at;
+    public $delivered_at;
+    public $ready_by;
+    public $delivery_window;
+    public $customer;
+    public $store;
+    public $origin_comments;
+    public $store_signature_required;
+    public $destination_comments;
+    public $customer_signature_type;
+    public $age_required;
+    public $webhook_url;
+    public $packages;
+    public $exception;
+    public $being_returned;
+    public $return_signature;
 
     /**
      * Deliveries constructor.

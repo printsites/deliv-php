@@ -35,8 +35,20 @@ class Store extends DelivAPI
      * @var bool $offers_fetches (Optional)
      * @var mixed $metro_id (Optional)
      */
-    public $id, $id_alias, $name, $phone, $suite_number, $address_line_1, $address_line_2, $address_city, $address_state, $address_zipcode, $type;
-    public $offers_delivery, $offers_fetches, $metro_id;
+    public $id;
+    public $id_alias;
+    public $name;
+    public $phone;
+    public $suite_number;
+    public $address_line_1;
+    public $address_line_2;
+    public $address_city;
+    public $address_state;
+    public $address_zipcode;
+    public $type;
+    public $offers_delivery;
+    public $offers_fetches;
+    public $metro_id;
 
     public function __construct()
     {

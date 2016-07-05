@@ -23,30 +23,21 @@ class Estimate extends DelivAPI
      * @var string $object
      * @var string $ready_by date(ISO 8601)
      * @var TimeWindows[] $delivery_windows
-     */
-    public $id,$object,$ready_by,$delivery_windows; //String
-
-    /**
      * @var float $distance
-     */
-    public $distance; //double
-    /**
      * @var TimeWindows[] $unavailable_windows
-     */
-    public $unavailable_windows; //array(UnavailableWindow)
-
-    /**
-     * @var Store $store
-     */
-    public $store; //Store
-    /**
+     * @var Store $store Store class
      * @var string $customer_zipcode
-     */
-    public $customer_zipcode; //String
-    /**
      * @var Package[] $packages
      */
-    public $packages; //array(Package)
+    public $id;
+    public $object;
+    public $ready_by;
+    public $delivery_windows;
+    public $distance;
+    public $unavailable_windows;
+    public $store;
+    public $customer_zipcode;
+    public $packages;
 
     /**
      * Estimate constructor.
@@ -56,7 +47,8 @@ class Estimate extends DelivAPI
     {
         $this->fill($response);
         $delivery_windows = array();
-        $packages=array();
+        $packages = array();
+        $unavailable_windows = array();
         foreach ($response->unavailable_windows as $window) {
             $unavailable_windows[] = (new TimeWindows())->fill($window);
         }

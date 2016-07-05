@@ -22,7 +22,10 @@ class Driver extends DelivAPI
      * @var float The longitude of the driver’s current location
      * @var float The latitude of the driver’s current location
      */
-    public $name, $photo_url, $longitude, $latitude; //String
+    public $name;
+    public $photo_url;
+    public $longitude;
+    public $latitude;
 
 
 }

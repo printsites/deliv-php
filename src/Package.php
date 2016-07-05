@@ -23,7 +23,13 @@ class Package extends DelivAPI
      * @var float $depth (Optional) inches
      * @var float $weight (Optional) pounds
      */
-    public $name, $price, $SKU, $height, $width, $depth, $weight;
+    public $name;
+    public $price;
+    public $SKU;
+    public $height;
+    public $width;
+    public $depth;
+    public $weight;
 
     /**
      * Packages constructor.

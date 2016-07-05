@@ -26,7 +26,10 @@ class TimeWindows extends DelivAPI
      * @var null|string $ends_at Represents the end of the window Example: '2014-01-29T05:00:00Z'
      * @var string $expires_at The point at which this time window is no longer available. Example: '2014-01-29T05:00:00Z'
      */
-    public $id, $starts_at, $ends_at, $expires_at;
+    public $id;
+    public $starts_at;
+    public $ends_at;
+    public $expires_at;
 
     /**
      * TimeWindows constructor.

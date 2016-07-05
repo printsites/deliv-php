@@ -24,8 +24,8 @@ class Stores extends DelivAPI {
    */
   public function ListStores($page = 1, $per_page = 50) {
 
+    $stores=array();
     $client = self::getDelivClient();
-
     $response = $client->get('stores', array(
       'page' => $page,
       'per_page' => $per_page

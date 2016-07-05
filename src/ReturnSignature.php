@@ -15,10 +15,12 @@ namespace Deliv;
  *
  */
 
-class ReturnSignature {
-  /**
-   * @var string $photo_url A URL of the signature
-   * @var string $last_name The last name of the person who signed for the return
-   */
-  public $photo_url,$last_name;
+class ReturnSignature
+{
+    /**
+     * @var string $photo_url A URL of the signature
+     * @var string $last_name The last name of the person who signed for the return
+     */
+    public $photo_url;
+    public $last_name;
 }
