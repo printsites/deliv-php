@@ -18,13 +18,19 @@ class Driver extends DelivAPI
 {
     /**
      * @var string $name Driver name
-     * @var string A URL of the driver’s profile photo
-     * @var float The longitude of the driver’s current location
-     * @var float The latitude of the driver’s current location
      */
     public $name;
+    /**
+     * @var string A URL of the driver’s profile photo
+     */
     public $photo_url;
+    /**
+     * @var float The longitude of the driver’s current location
+     */
     public $longitude;
+    /**
+     * @var float The latitude of the driver’s current location
+     */
     public $latitude;
 
 

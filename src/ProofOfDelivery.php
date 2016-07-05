@@ -16,9 +16,11 @@ class DestinationSignature
 {
     /**
      * @var string $photo_url A URL for the proof of delivery photo taken at dropoff if present
-     * @var string $last_name The last name of the person who signed for the package
      */
     public $photo_url;
+    /**
+     * @var string $last_name The last name of the person who signed for the package
+     */
     public $last_name;
 }
 
@@ -41,9 +43,11 @@ class ProofOfDeliver
 {
     /**
      * @var string $delivery_photo A URL for the proof of delivery photo taken at dropoff if present
-     * @var string $destination_signature A hash containing photo_url and last_name if present
      */
     public $delivery_photo;
+    /**
+     * @var string $destination_signature A hash containing photo_url and last_name if present
+     */
     public $destination_signature;
 
 }

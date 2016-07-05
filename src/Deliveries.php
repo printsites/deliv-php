@@ -15,57 +15,101 @@ namespace Deliv;
  */
 class Deliveries extends DelivAPI
 {
-
     /**
-     * @var string $id uuid for Delivery. Example: "67e382e5-ffd7-4af5-a8e5-9382904faf93"
-     * @var string $object
-     * @var string $tracking_code Order tracking number for deliv package. Example: "1V8XJJCV"
-     * @var string $order_reference Your internal order number, for reconciling. Example: "12324"
-     * @var string $alt_id_2 Additional internal order number, for reconciling
-     * @var string $alt_id_2 Additional internal order number, for reconciling
-     * @var string $status The status of the delivery. Example: "pending_delivery_time|assigned|in_transit|delivered|returned|canceled"
-     * @var Driver $driver
-     * @var string $estimated_delivery_at The time when the delivery can be picked up date(ISO 8601). Example "2014-01-29T05:00:00Z"
-     * @var string $delivered_at date(ISO 8601) Example "2014-01-29T05:00:00Z"
-     * @var string $ready_by date(ISO 8601)
-     * @var TimeWindows $delivery_window The chosen delivery window from your delivery estimate
-     * @var Customer $customer The customer the packages will be delivered to
-     * @var Store $store The store the packages will be picked up from
-     * @var string $origin_comments Comments that are sent to the store for the package to be delivered.
-     * @var bool $store_signature_required (Optional) Special instructions for the driver during pickup (i.e. what counter to pickup from)
-     * @var string $destination_comments (Optional) Special instructions for the driver during delivery (i.e. gate codes, etc)
-     * @var string $customer_signature_type (Optional) Valid options any_signature, leave_at_door, recipient_signature
-     * @var int $age_required (Optional) Minimum age of receiver who can sign for package. Sets signature required to true
-     * @var string $webhook_url A URL where you can receive updates on this delivery
-     * @var array $packages A set of one or more packages to be delivered
-     * @var string $exception The exception that lead to the delivery’s cancel or return
-     * @var bool $being_returned Whether or not the delivery is being returned
-     * @var string $return_signature The return signature, if captured and the delivery has been returned
-     *
+     * @var string uuid for Delivery. Example: "67e382e5-ffd7-4af5-a8e5-9382904faf93"
      */
     public $id;
+    /**
+     * @var string
+     */
     public $object;
+    /**
+     * @var string $tracking_code Order tracking number for deliv package. Example: "1V8XJJCV"
+     */
     public $tracking_code;
+    /**
+     * @var string $order_reference Your internal order number, for reconciling. Example: "12324"
+     */
     public $order_reference;
+    /**
+     * @var string $alt_id_2 Additional internal order number, for reconciling
+     */
     public $alt_id_1;
+    /**
+     * @var string $alt_id_2 Additional internal order number, for reconciling
+     */
     public $alt_id_2;
+    /**
+     * @var string $status The status of the delivery. Example: "pending_delivery_time|assigned|in_transit|delivered|returned|canceled"
+     */
     public $status;
+    /**
+     * @var Driver $driver
+     */
     public $driver;
+    /**
+     * @var string $estimated_delivery_at The time when the delivery can be picked up date(ISO 8601). Example "2014-01-29T05:00:00Z"
+     */
     public $estimated_delivery_at;
+    /**
+     * @var string $delivered_at date(ISO 8601) Example "2014-01-29T05:00:00Z"
+     */
     public $delivered_at;
+    /**
+     * @var string $ready_by date(ISO 8601)
+     */
     public $ready_by;
+    /**
+     * @var TimeWindows $delivery_window The chosen delivery window from your delivery estimate
+     */
     public $delivery_window;
+    /**
+     * @var Customer $customer The customer the packages will be delivered to
+     */
     public $customer;
+    /**
+     * @var Store $store The store the packages will be picked up from
+     */
     public $store;
+    /**
+     * @var string $origin_comments Comments that are sent to the store for the package to be delivered.
+     */
     public $origin_comments;
+    /**
+     * @var bool $store_signature_required (Optional) Special instructions for the driver during pickup (i.e. what counter to pickup from)
+     */
     public $store_signature_required;
+    /**
+     * @var string $destination_comments (Optional) Special instructions for the driver during delivery (i.e. gate codes, etc)
+     */
     public $destination_comments;
+    /**
+     * @var string $customer_signature_type (Optional) Valid options any_signature, leave_at_door, recipient_signature
+     */
     public $customer_signature_type;
+    /**
+     * @var int $age_required (Optional) Minimum age of receiver who can sign for package. Sets signature required to true
+     */
     public $age_required;
+    /**
+     * @var string $webhook_url A URL where you can receive updates on this delivery
+     */
     public $webhook_url;
+    /**
+     * @var array $packages A set of one or more packages to be delivered
+     */
     public $packages;
+    /**
+     * @var string $exception The exception that lead to the delivery’s cancel or return
+     */
     public $exception;
+    /**
+     * @var bool $being_returned Whether or not the delivery is being returned
+     */
     public $being_returned;
+    /**
+     * @var string $return_signature The return signature, if captured and the delivery has been returned
+     */
     public $return_signature;
 
     /**

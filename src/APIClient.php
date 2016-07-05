@@ -1,6 +1,8 @@
 <?php
 namespace Deliv;
+
 use GuzzleHttp;
+
 /**
  * APIClient
  *
@@ -15,10 +17,21 @@ use GuzzleHttp;
  */
 class APIClient
 {
+    /**
+     * @var string $lastRequest
+     */
     private $lastRequest;
+    /**
+     * @var object $lastRequestData
+     */
     private $lastRequestData;
+    /**
+     * @var string $api_key (Required)
+     */
     private $api_key;
-    private static $api_client;
+    /**
+     * @var string $apiUrl (Required) default https://api-sandbox.deliv.co/v2/
+     */
     private $apiUrl;
     private static $defaults = array(
         'verify_ssl' => true

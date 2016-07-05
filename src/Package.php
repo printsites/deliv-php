@@ -16,19 +16,31 @@ class Package extends DelivAPI
 {
     /**
      * @var string $name (Required)
-     * @var string $price (Required)
-     * @var string (Optional)
-     * @var float $height (Optional) inches
-     * @var float $width (Optional) inches
-     * @var float $depth (Optional) inches
-     * @var float $weight (Optional) pounds
      */
     public $name;
+    /**
+     * @var string $price (Required)
+     */
     public $price;
+    /**
+     * @var string (Optional)
+     */
     public $SKU;
+    /**
+     * @var float $height (Optional) inches
+     */
     public $height;
+    /**
+     * @var float $width (Optional) inches
+     */
     public $width;
+    /**
+     * @var float $depth (Optional) inches
+     */
     public $depth;
+    /**
+     * @var float $weight (Optional) pounds
+     */
     public $weight;
 
     /**

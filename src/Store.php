@@ -19,35 +19,62 @@ namespace Deliv;
  */
 class Store extends DelivAPI
 {
+
     /**
      * @var string $id (Required)
-     * @var string $id_alias (Optional)
-     * @var string $name (Required)
-     * @var string $phone (Required)
-     * @var string $suite_number (Optional)
-     * @var string $address_line_1 (Required)
-     * @var string $address_line_2 (Optional)
-     * @var string $address_city (Required)
-     * @var string $address_state (Required)
-     * @var string $address_zipcode (Required)
-     * @var string $type (Required)
-     * @var string $offers_delivery (Required)
-     * @var bool $offers_fetches (Optional)
-     * @var mixed $metro_id (Optional)
      */
     public $id;
+    /**
+     * @var string $id_alias (Optional)
+     */
     public $id_alias;
+    /**
+     * @var string $name (Required)
+     */
     public $name;
+    /**
+     * @var string $phone (Required)
+     */
     public $phone;
+    /**
+     * @var string $suite_number (Optional)
+     */
     public $suite_number;
+    /**
+     * @var string $address_line_1 (Required)
+     */
     public $address_line_1;
+    /**
+     * @var string $address_line_2 (Optional)
+     */
     public $address_line_2;
+    /**
+     * @var string $address_city (Required)
+     */
     public $address_city;
+    /**
+     * @var string $address_state (Required)
+     */
     public $address_state;
+    /**
+     * @var string $address_zipcode (Required)
+     */
     public $address_zipcode;
+    /**
+     * @var string $type (Required)
+     */
     public $type;
+    /**
+     * @var string $offers_delivery (Required)
+     */
     public $offers_delivery;
+    /**
+     * @var bool $offers_fetches (Optional)
+     */
     public $offers_fetches;
+    /**
+     * @var mixed $metro_id (Optional)
+     */
     public $metro_id;
 
     public function __construct()

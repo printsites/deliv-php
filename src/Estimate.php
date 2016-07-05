@@ -20,23 +20,39 @@ class Estimate extends DelivAPI
 {
     /**
      * @var string $id
-     * @var string $object
-     * @var string $ready_by date(ISO 8601)
-     * @var TimeWindows[] $delivery_windows
-     * @var float $distance
-     * @var TimeWindows[] $unavailable_windows
-     * @var Store $store Store class
-     * @var string $customer_zipcode
-     * @var Package[] $packages
      */
     public $id;
+    /**
+     * @var string $object
+     */
     public $object;
+    /**
+     * @var string $ready_by date(ISO 8601)
+     */
     public $ready_by;
+    /**
+     * @var TimeWindows[] $delivery_windows
+     */
     public $delivery_windows;
+    /**
+     * @var float $distance
+     */
     public $distance;
+    /**
+     * @var TimeWindows[] $unavailable_windows
+     */
     public $unavailable_windows;
+    /**
+     * @var Store $store Store class
+     */
     public $store;
+    /**
+     * @var string $customer_zipcode
+     */
     public $customer_zipcode;
+    /**
+     * @var Package[] $packages
+     */
     public $packages;
 
     /**
