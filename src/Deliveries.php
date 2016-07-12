@@ -159,14 +159,7 @@ class Deliveries extends DelivAPI
 
         $client = self::getDelivClient();
         $response = $client->post('deliveries', [
-            'json' => [
-                'store_id' => $estimate->store->id,
-                'order_reference' => $order_number,
-                'customer' => $customer,
-                'delivery_window_id' => $delivery_window_id,
-                'ready_by' => $estimate->ready_by,
-                'packages' => $estimate->packages
-            ]
+            'json' => $requestFields
         ]);
 
         $this->fill($response);
@@ -191,6 +184,17 @@ class Deliveries extends DelivAPI
 
         $client = self::getDelivClient();
         $response = $client->get('deliveries/' . $delivery_id);
+        $this->parseDeliveryStatus($response);
+
+    }
+
+    /**
+     * Parse delivery response from API into Deliveries class.
+     * @param object $response
+     */
+    public function parseDeliveryStatus($response)
+    {
+
         $this->fill($response);
         //Recast Responses to SDK Models
         $packages = array();
@@ -200,6 +204,9 @@ class Deliveries extends DelivAPI
         $this->packages = $packages;
         $this->customer = (new Customer())->fill($response->customer);
         $this->delivery_window = (new TimeWindows())->fill($response->delivery_window);
+        if (isset($response->driver)) {
+            $this->driver = (new Driver())->fill($response->driver);
+        }
         $this->store = (new Store())->fill($response->store);
     }
 

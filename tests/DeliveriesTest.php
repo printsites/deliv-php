@@ -81,7 +81,7 @@ class DeliveriesTest extends \PHPUnit_Framework_TestCase
         $deliveries->webhook_url=TEST_WEBHOOK;
         $this->assertNull($deliveries->id, 'Deliveries id should be null');
         $deliveries->createNewDelivery($estimate, $customer, $ordernum, $delivery_window_id);
-
+        $this->assertEquals(TEST_WEBHOOK,$deliveries->webhook_url);
         $this->assertNotNull($deliveries->id, 'Have valid delivery ID');
         $this->assertInstanceOf('Deliv\Deliveries', $deliveries);
         $this->assertInstanceOf('Deliv\Store', $deliveries->store);

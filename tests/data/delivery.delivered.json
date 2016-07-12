@@ -1,0 +1,80 @@
+{
+  "event": "delivery.delivered",
+  "created_at": "2016-07-12T13:44:46Z",
+  "delivery": {
+    "id": "1994e968-dca2-4813-a018-b6f0ba6b86b4",
+    "status": "delivered",
+    "tracking_code": "ARKJBJHW",
+    "ready_by": "2016-07-12T16:17:28Z",
+    "customer": {
+      "first_name": "jcizb",
+      "last_name": "dheqp",
+      "phone": "8105551212",
+      "email": "testemail@test.com",
+      "business_name": "PrintSites",
+      "address_line_1": "123 North Kedzie Avenue",
+      "address_city": "Chicago",
+      "address_state": "IL",
+      "address_zipcode": "60618",
+      "address_line_2": ""
+    },
+    "age_required": 0,
+    "origin_comments": null,
+    "order_reference": "1468329447",
+    "webhook_url": "https://requestb.in/11ee3vs1",
+    "object": "delivery",
+    "destination_comments": null,
+    "estimated_delivery_at": null,
+    "delivered_at": "2016-07-12T13:44:46Z",
+    "customer_signature_type": "leave_at_door",
+    "store_signature_required": false,
+    "store": {
+      "id": "19fcb9d1-2c99-4874-a5b0-344999b30a13",
+      "id_alias": "1",
+      "name": "Store - Prints - Chicago",
+      "phone": "(773) 555-1212",
+      "suite_number": "",
+      "address_line_1": "123 North Lincoln Avenue",
+      "address_line_2": null,
+      "address_city": "Chicago",
+      "address_state": "IL",
+      "address_zipcode": "60618",
+      "type": "standalone_store",
+      "offers_delivery": true,
+      "offers_fetches": false,
+      "metro_id": "9d33eb1e-08f9-423e-b510-2c1dd8c946e0",
+      "mall_id": null,
+      "timezone": "America/Chicago",
+      "default_ready_by_offset": null,
+      "anytime_window_padding": 180
+    },
+    "delivery_proof_required": false,
+    "pickup_proof_required": false,
+    "being_returned": false,
+    "driver": {
+      "name": "Deliv Test",
+      "photo_url": "https://sandbox.deliv.co/assets/default_driver.png",
+      "latitude": "41.955914",
+      "longitude": "-87.708335"
+    },
+    "shipping_label_url": null,
+    "exception": null,
+    "delivery_window": {
+      "id": "adca8b30-7318-4898-83ce-86acfb697c01",
+      "starts_at": null,
+      "ends_at": "2016-07-15T02:00:00Z",
+      "expires_at": "2016-07-14T23:00:00Z"
+    },
+    "packages": [
+      {
+        "name": "Joes Propogands Flyers",
+        "price": "49.99",
+        "SKU": "1.2",
+        "height": 1.2,
+        "width": 1.2,
+        "depth": 1.2,
+        "weight": 4.0
+      }
+    ]
+  }
+}
