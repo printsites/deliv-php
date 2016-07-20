@@ -33,6 +33,7 @@
     </filter>
     <php>
         <const name="DELIV_API_KEY" value="YOURAPIKEYHERE="/>
+        <const name="GOOGLE_MAP_API_KEY" value="GOOGLE MAPS API KEY"/>
         <const name="TEST_EMAIL_ADDRESS" value="[TEST_EMAIL_HERE]"/>
         <const name="TEST_EMAIL_PASSWORD" value="[TEST_EMAIL_PASSWORD_HERE]"/>
         <const name="TEST_EMAIL_SERVER" value="[TEST_EMAIL_SERVER_HERE]"/>

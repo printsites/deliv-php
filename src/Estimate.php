@@ -79,5 +79,5 @@ class Estimate extends DelivAPI
         $this->packages = $packages;
         $this->store = (new Store())->fill($response->store);
     }
-
+    
 }
