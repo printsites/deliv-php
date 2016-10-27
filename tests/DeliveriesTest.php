@@ -140,7 +140,7 @@ class DeliveriesTest extends \PHPUnit_Framework_TestCase
                     if ($confirmation_success) {
                         break;
                     } else {
-                        sleep(45);
+                        sleep(100);
                     }
                 }
             }
