@@ -1,7 +1,7 @@
 {
     "name": "printsites/deliv-php-sdk",
     "description": "Deliver PHP SDK",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +10,9 @@
         }
     ],
     "autoload": {
-        "psr-4": {"Deliv\\": "src/"}
+        "psr-4": {
+            "Deliv\\": "src/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
@@ -18,7 +20,9 @@
         }
     },
     "require": {
-        "guzzlehttp/guzzle": "^6.2",
-        "phpunit/phpunit": "^5.4"
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.*"
     }
 }
