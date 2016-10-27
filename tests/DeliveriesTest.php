@@ -103,7 +103,7 @@ class DeliveriesTest extends \PHPUnit_Framework_TestCase
         $confirmation_success = false;
         for ($try = 1; $try <= $maxTries; $try++) {
             // your code
-            $hostname = '{' . TEST_EMAIL_SERVER . ':' . TEST_EMAIL_SERVER_PORT . '/notls}INBOX';
+            $hostname = '{' . TEST_EMAIL_SERVER . ':' . TEST_EMAIL_SERVER_PORT . '/tls}INBOX';
             $username = TEST_EMAIL_ADDRESS;
             $password = TEST_EMAIL_PASSWORD;
             $inbox = imap_open($hostname, $username, $password) or $error = 1;
