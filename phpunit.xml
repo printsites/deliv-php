@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit
+    backupGlobals               = "false"
+    backupStaticAttributes      = "false"
+    colors                      = "true"
+    convertErrorsToExceptions   = "true"
+    convertNoticesToExceptions  = "true"
+    convertWarningsToExceptions = "true"
+    processIsolation            = "false"
+    stopOnFailure               = "false"
+    syntaxCheck                 = "false"
+    bootstrap                   = "./vendor/autoload.php" >
+
+    <testsuites>
+        <testsuite name="Test Suite">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <blacklist>
+            <directory suffix=".php">./vendor</directory>
+        </blacklist>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-xml" target="results/phpunit/coverage"/>
+        <log type="coverage-clover" target="results/phpunit/clover.xml"/>
+        <log type="junit" target="results/phpunit/junit.xml" logIncompleteSkipped="false"/>
+    </logging>
+
+    <php>
+        <const name="DELIV_API_KEY" value="0788494431f585b5a6281540c50175b99be4"/>
+        <const name="TEST_EMAIL_ADDRESS" value="api_tester@printsites.io"/>
+        <const name="TEST_EMAIL_PASSWORD" value="$^DpczZD3"/>
+        <const name="TEST_EMAIL_SERVER" value="mail.printsites.io"/>
+        <const name="TEST_EMAIL_SERVER_PORT" value="143"/>
+        <const name="TEST_WEBHOOK" value="http://requestb.in/1754my11"/>
+    </php>
+
+</phpunit>
