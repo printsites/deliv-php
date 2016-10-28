@@ -1,38 +1,29 @@
 <?php
 namespace Deliv\Tests;
-use Deliv\Stores;
+
+use Deliv\DelivClient;
 
 /**
  * StoresTest
  *
- * @author Joseph Jozwik <jjozwik@printsites.com>
- * @package deliv-php-sdk
- * @version 1.0
- * @copyright Copyright (c) 2016 PrintSites
- * @license https://opensource.org/licenses/MIT MIT
- *
  */
 class StoresTest extends \PHPUnit_Framework_TestCase {
 
-  public static function setUpBeforeClass() {
+  public function testStores() {
+      $client = new DelivClient(DELIV_API_KEY, "sandbox");
 
-  }
+      $stores = $client->stores->listStores();
+      // Ensure we get at least one back.
+      $this->assertArrayHasKey("0", $stores);
 
-  /**
-   * @return \Deliv\Store
-   */
-  public function testListStores() {
+      $store = end($stores);
+      $this->assertAttributeNotEmpty("name", $store);
 
-    $stores = new Stores();
-    $results = $stores->ListStores();
-    /**
-     * @var $store \Deliv\Store
-     */
-    foreach ($results as $store) {
-      $this->assertInstanceOf('Deliv\Store', $store);
-    }
+      $store = $client->stores->getStoreById($store->id);
+      $this->assertAttributeNotEmpty("name", $store);
 
-    return $store;
+      $store = $client->stores->getStoreByAlias($store->id_alias);
+      $this->assertAttributeNotEmpty("name", $store);
   }
 
   /**
