@@ -60,11 +60,11 @@ class DelivDeliveries {
     /**
      * Update Delivery
      * @see http://docs.deliv.co/v2/#update-a-delivery
-     * @param \stdClass $data
+     * @param mixed $data
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function updateDelivery(\stdClass $data)
+    public function updateDelivery($data)
     {
         return $this->client->put("deliveries/$data->id", $data);
     }
@@ -76,7 +76,7 @@ class DelivDeliveries {
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function deleteDelivery($id)
+    public function cancelDelivery($id)
     {
         return $this->client->delete("deliveries/$id");
     }

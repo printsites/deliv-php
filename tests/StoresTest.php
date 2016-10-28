@@ -26,13 +26,4 @@ class StoresTest extends \PHPUnit_Framework_TestCase {
       $this->assertAttributeNotEmpty("name", $store);
   }
 
-  /**
-   * @depends testListStores
-   * @param $store \Deliv\Store
-   */
-  public function testgetStoreByIDAlias($store) {
-    $stores = new Stores();
-    $retrivedStore = $stores->getStoreByIDAlias($store->getIdAlias());
-    $this->assertInstanceOf('Deliv\Store', $retrivedStore);
-  }
 }

@@ -19,7 +19,7 @@ class Package extends AbstractResource
 
     /** @var string (Optional) */
     public $SKU;
-    public $sku;
+
 
     /** @var float $height (Optional) inches */
     public $height;
@@ -33,11 +33,15 @@ class Package extends AbstractResource
     /** @var float $weight (Optional) pounds */
     public $weight;
 
-    public function __construct(\stdClass $data)
-    {
-        parent::__construct($data);
-        $this->sku = $this->SKU;
-        unset($this->SKU);
-
+    public static function factory() {
+        $package = new \stdClass();
+        $package->name = "";
+        $package->price = "";
+        $package->SKU = "";
+        $package->height = null;
+        $package->width = null;
+        $package->depth = null;
+        $package->weight = null;
+        return $package;
     }
 }

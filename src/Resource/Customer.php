@@ -1,7 +1,6 @@
 <?php
-namespace Deliv;
 
-use Deliv\Resource\AbstractResource;
+namespace Deliv\Resource;
 
 /**
  * Customer
@@ -46,4 +45,23 @@ class Customer extends AbstractResource
 
     /** @var string $address_zipcode (Required) Standard 5-digit zip */
     public $address_zipcode;
+
+    /**
+     * @return \stdClass
+     */
+    public static function factory()
+    {
+        $customer = new \stdClass();
+        $customer->first_name = "";
+        $customer->last_name = "";
+        $customer->business_name = null;
+        $customer->phone = "";
+        $customer->email = null;
+        $customer->address_line_1 = "";
+        $customer->address_line_2 = null;
+        $customer->address_city = "";
+        $customer->address_state = "";
+        $customer->address_zipcode = "";
+        return $customer;
+    }
 }

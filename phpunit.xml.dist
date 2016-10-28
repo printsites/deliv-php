@@ -15,10 +15,7 @@
          >
     <testsuites>
         <testsuite name="PrintSites Deliv Tests">
-            <file>tests/EventTest.php</file>
-            <file>tests/DeliveriesTest.php</file>
-            <file>tests/DeliveryEstimateTest.php</file>
-            <file>tests/StoresTest.php</file>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 

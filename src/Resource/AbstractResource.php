@@ -35,4 +35,5 @@ abstract class AbstractResource
             }
         }
     }
+
 }
