@@ -8,3 +8,6 @@ Follows typical PrintSites library development processes.
 composer install --dev
 phpunit
 ```
+### Notes
+Heavily inspired by https://github.com/intercom/intercom-php
+
