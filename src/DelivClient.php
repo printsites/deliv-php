@@ -37,7 +37,7 @@ class DelivClient
     public $fetches;
 
     /**
-     * IntercomClient constructor.
+     * DelivClient constructor.
      * @param string $apiKey Deliv API Key
      * @param string $environment Deliv environment. Either sandbox or production.
      */
