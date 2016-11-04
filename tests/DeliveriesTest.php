@@ -62,7 +62,7 @@ class DeliveriesTest extends \PHPUnit_Framework_TestCase
         $delivery->customer->first_name = "Matt";
         $delivery->customer->last_name = "Wisner";
         $delivery->customer->phone = "2312251102";
-        $delivery->customer->address_line_1 = "123 North Kedzie Avenue";
+        $delivery->customer->address_line_1 = "3127 N Drake Ave";
         $delivery->customer->address_city = "Chicago";
         $delivery->customer->address_state = "IL";
         $delivery->customer->address_zipcode = "60618";
@@ -72,7 +72,6 @@ class DeliveriesTest extends \PHPUnit_Framework_TestCase
         $package->SKU = "abcdefgt";
         $delivery->packages = [$package];
         $delivery = $client->deliveries->createDelivery($delivery);
-
         $this->assertAttributeNotEmpty("id", $delivery);
 
         return $delivery;

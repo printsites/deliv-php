@@ -131,7 +131,6 @@ class DelivClient
                     'Api-Key' => $this->apiKey,
                 ]
             ]);
-        print_r($response);
         return $this->handleResponse($response);
     }
 

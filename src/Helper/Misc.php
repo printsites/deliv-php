@@ -10,6 +10,6 @@ class Misc
      * @return false|string
      */
     public static function formatTimestamp($time) {
-      return date('Y-m-d\TG:i:s\Z', $time);
+      return gmdate('Y-m-d\TG:i:s\Z', $time);
     }
 }
