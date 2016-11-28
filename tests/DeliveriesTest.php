@@ -58,6 +58,8 @@ class DeliveriesTest extends \PHPUnit_Framework_TestCase
         $delivery_estimate = $args[0];
         $delivery = \Deliv\Resource\Delivery::factory($delivery_estimate->delivery_windows[0]->id, $delivery_estimate->store->id_alias);
         $delivery->order_reference = "12345";
+        $delivery->customer_signature_type = "any_signature";
+        $delivery->delivery_proof_required = TRUE;
         $delivery->customer = \Deliv\Resource\Customer::factory();
         $delivery->customer->first_name = "Matt";
         $delivery->customer->last_name = "Wisner";
