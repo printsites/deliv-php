@@ -40,7 +40,7 @@ class DelivDeliveries {
     {
         $query = [];
         if ($expand) {
-            $query['expand'] = 1;
+            $query['expand'] = 'signature,proof_of_delivery';
         }
         return $this->client->get("deliveries/$id", $query);
     }
