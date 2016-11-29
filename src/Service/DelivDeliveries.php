@@ -32,12 +32,17 @@ class DelivDeliveries {
      * Returns delivery by id
      * @see http://docs.deliv.co/v2/#retrieve-a-delivery
      * @param string $id
+     * @param bool $expand
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getDelivery($id)
+    public function getDelivery($id, $expand = TRUE)
     {
-        return $this->client->get("deliveries/$id", []);
+        $query = [];
+        if ($expand) {
+            $query['expand'] = 1;
+        }
+        return $this->client->get("deliveries/$id", $query);
     }
 
     /**
