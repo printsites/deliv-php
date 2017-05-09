@@ -1,6 +1,6 @@
 {
     "name": "printsites/deliv-php",
-    "description": "Deliver PHP SDK",
+    "description": "http://www.deliv.co/ PHP SDK",
     "type": "library",
     "license": "MIT",
     "authors": [

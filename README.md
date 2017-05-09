@@ -1,7 +1,6 @@
-# Deliv PHP SDK
+# Deliv PHP Library
 
-# Development
-Follows typical PrintSites library development processes.
+
 
 ## Running Tests
 ```bash
